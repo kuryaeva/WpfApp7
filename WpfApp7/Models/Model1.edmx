@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище keramikaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ImageT2">
+          <Key>
+            <PropertyRef Name="IDT2" />
+          </Key>
+          <Property Name="IDT2" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image_ImageT2" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductsT1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberT1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameT1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageT1" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_ProductsT1_ImageT2">
+          <End Role="ImageT2" Type="Self.ImageT2" Multiplicity="0..1" />
+          <End Role="ProductsT1" Type="Self.ProductsT1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageT2">
+              <PropertyRef Name="IDT2" />
+            </Principal>
+            <Dependent Role="ProductsT1">
+              <PropertyRef Name="ImageT1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище keramikaModelContainer">
+          <EntitySet Name="ImageT2" EntityType="Self.ImageT2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsT1" EntityType="Self.ProductsT1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ProductsT1_ImageT2" Association="Self.FK_ProductsT1_ImageT2">
+            <End Role="ImageT2" EntitySet="ImageT2" />
+            <End Role="ProductsT1" EntitySet="ProductsT1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="keramikaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="keramikaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ImageT2" EntityType="keramikaModel.ImageT2" />
+          <EntitySet Name="ProductsT1" EntityType="keramikaModel.ProductsT1" />
+          <EntitySet Name="sysdiagrams" EntityType="keramikaModel.sysdiagrams" />
+          <AssociationSet Name="FK_ProductsT1_ImageT2" Association="keramikaModel.FK_ProductsT1_ImageT2">
+            <End Role="ImageT2" EntitySet="ImageT2" />
+            <End Role="ProductsT1" EntitySet="ProductsT1" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ImageT2">
+          <Key>
+            <PropertyRef Name="IDT2" />
+          </Key>
+          <Property Name="IDT2" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image_ImageT2" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ProductsT1" Relationship="keramikaModel.FK_ProductsT1_ImageT2" FromRole="ImageT2" ToRole="ProductsT1" />
+        </EntityType>
+        <EntityType Name="ProductsT1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberT1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameT1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageT1" Type="Int32" />
+          <NavigationProperty Name="ImageT2" Relationship="keramikaModel.FK_ProductsT1_ImageT2" FromRole="ProductsT1" ToRole="ImageT2" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_ProductsT1_ImageT2">
+          <End Type="keramikaModel.ImageT2" Role="ImageT2" Multiplicity="0..1" />
+          <End Type="keramikaModel.ProductsT1" Role="ProductsT1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageT2">
+              <PropertyRef Name="IDT2" />
+            </Principal>
+            <Dependent Role="ProductsT1">
+              <PropertyRef Name="ImageT1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище keramikaModelContainer" CdmEntityContainer="keramikaEntities">
+          <EntitySetMapping Name="ImageT2">
+            <EntityTypeMapping TypeName="keramikaModel.ImageT2">
+              <MappingFragment StoreEntitySet="ImageT2">
+                <ScalarProperty Name="Image_ImageT2" ColumnName="Image_ImageT2" />
+                <ScalarProperty Name="IDT2" ColumnName="IDT2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsT1">
+            <EntityTypeMapping TypeName="keramikaModel.ProductsT1">
+              <MappingFragment StoreEntitySet="ProductsT1">
+                <ScalarProperty Name="ImageT1" ColumnName="ImageT1" />
+                <ScalarProperty Name="NameT1" ColumnName="NameT1" />
+                <ScalarProperty Name="NumberT1" ColumnName="NumberT1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="keramikaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

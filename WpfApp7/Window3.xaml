@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfApp7.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Grid Background="#2f4f4f">
+       
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Label Content="МОСКВА"
+               HorizontalAlignment="Left" 
+               Grid.Row="0"
+               Grid.Column="1"  
+               Background="White"
+               Foreground="#2f4f4f"
+               Margin="138,6,0,0" 
+               FontSize="15"
+               VerticalAlignment="Top"
+               FontWeight="Bold"
+               Height="30"
+               Width="77"/>
+        
+        <Label Content="КАЗАНЬ" 
+               Grid.Row="0"
+               Grid.Column="1"
+               HorizontalAlignment="Left"
+               Background="White" 
+               Foreground="#2f4f4f"
+               Margin="391,6,0,0"
+               VerticalAlignment="Top" 
+               FontSize="15"
+               FontWeight="Bold" 
+               Width="68"/>
+        
+        <Label Content="САНКТ-ПЕТЕРБУРГ"
+               Grid.Row="0" 
+               Grid.Column="1" 
+               FontSize="15"
+               HorizontalAlignment="Left" 
+               Background="White" 
+               Foreground="#2f4f4f"
+               Margin="229,6,0,0" 
+               VerticalAlignment="Top" 
+               FontWeight="Bold"/>
+
+       <Image Source="/Image/ceramics.png" Grid.ColumnSpan="2" Margin="0,19,565,260" Grid.RowSpan="2" />
+
+        <Label Content="КЕРАМИЧЕСКАЯ МАСТЕРСКАЯ" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="110,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="27"/>
+        <Label Content="&quot;СВОИМИ РУКАМИ&quot;"  Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="166,93,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="27" Grid.RowSpan="2"/>
+        <Button Content="Выход из системы" Foreground="#2f4f4f" Background="White" HorizontalAlignment="Left" Margin="46,258,0,0" Grid.Row="1" VerticalAlignment="Top" Width="126" Height="31" FontWeight="Bold"/>
+        <Button Content="Записи" Foreground="#2f4f4f" Background="White" HorizontalAlignment="Left" Margin="46,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="126" Height="33" FontWeight="Bold" FontSize="16"/>
+        <Button Content="Раздел с изделиями" Foreground="#2f4f4f" Background="White" HorizontalAlignment="Left" Margin="21,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="167" Height="37" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Добавление мастер-классов" Foreground="#2f4f4f" Background="White" HorizontalAlignment="Left" Margin="10,176,0,0" Grid.Row="1" VerticalAlignment="Top" Width="194" Height="41" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="13"/>
+        <Label Content="Имя:Вера" Grid.Column="1" HorizontalAlignment="Left" Margin="99,53,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        
+        <Label Content="Номер телефона:+7(910)-567-22-23" Grid.Column="1" HorizontalAlignment="Left" Margin="38,79,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Дата посещения:22.03.2023" Grid.Column="1" HorizontalAlignment="Left" Margin="55,105,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Заявка на подтверждение записи" Grid.Column="1" HorizontalAlignment="Left" Margin="10,23,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Мастер-класс" Grid.Column="1" HorizontalAlignment="Left" Margin="88,126,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Подтвердить запись"  Click="Button_Click"  Grid.Column="1" HorizontalAlignment="Left" Margin="66,157,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Height="27"/>
+        <Button Content="Не подтверждать запись" Grid.Column="1" HorizontalAlignment="Left" Margin="38,189,0,0" Grid.Row="1" VerticalAlignment="Top" Width="185" Height="28"/>
+
+    </Grid>
+</Window>
